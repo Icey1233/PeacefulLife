@@ -1,0 +1,8 @@
+.env
+.env.*
+.local-data
+.deployment
+dist
+previews
+tests
+.git

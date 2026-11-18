@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.local-data/
+.deployment/
+dist/
+public/
+.vercel/
+previews/
+*.log
+.DS_Store

@@ -1,0 +1,47 @@
+# Optional Serverless Devs v3 template. Run from the project root:
+# s -t deploy/s.yaml.example deploy
+# Set APP_ORIGIN and the two OSS credentials in the local CLI environment first.
+edition: 3.0.0
+name: peaceful-life
+access: default
+resources:
+  peacefulLife:
+    component: fc3
+    props:
+      region: cn-beijing
+      functionName: peaceful-life
+      description: Peaceful Life accounts and per-user OSS saves
+      runtime: custom.debian12
+      code: ../dist/peaceful-life-fc.zip
+      handler: server/index.mjs
+      memorySize: 512
+      cpu: 0.5
+      diskSize: 512
+      timeout: 60
+      internetAccess: true
+      instanceConcurrency: 16
+      # Required: this version uses an in-process per-account write queue.
+      # Also verify the console function instance quota is exactly 1.
+      concurrencyConfig:
+        reservedConcurrency: 1
+      customRuntimeConfig:
+        port: 9000
+        command: ['/code/runtime/bin/node']
+        args: ['/code/server/index.mjs']
+      environmentVariables:
+        NODE_ENV: production
+        HOST: '0.0.0.0'
+        PORT: '9000'
+        APP_ORIGIN: ${env('APP_ORIGIN')}
+        OSS_BUCKET: peaceful-life-data
+        OSS_REGION: oss-cn-beijing
+        OSS_ENDPOINT: https://oss-cn-beijing.aliyuncs.com
+        OSS_ACCESS_KEY_ID: ${env('OSS_ACCESS_KEY_ID')}
+        OSS_ACCESS_KEY_SECRET: ${env('OSS_ACCESS_KEY_SECRET')}
+      triggers:
+        - triggerName: website
+          triggerType: http
+          qualifier: LATEST
+          triggerConfig:
+            authType: anonymous
+            methods: [GET, HEAD, POST, PUT]

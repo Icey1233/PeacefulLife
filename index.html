@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <title>慢慢日常 · 和小猫过一天</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="慢慢日常首页">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 14 6 5l8 5h4l8-5-1 10c3 10-2 14-9 14S3 24 7 14Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M11 18h.1m10 0h.1M14 22q2 3 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <span>慢慢日常<small>MELLOW DAYS</small></span>
+      </a>
+      <span class="header-note">日子很长，慢慢来就好。</span>
+      <div class="header-actions">
+      <button class="account-button" id="account-open" type="button"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="6" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M4 17v-2a6 6 0 0 1 12 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span id="account-name">登录 / 注册</span></button>
+      <button class="sound-button" id="sound-toggle" type="button" aria-pressed="false" title="开启或关闭轻柔背景音"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m11 5-5 4H3v6h3l5 4V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path id="sound-waves" d="m16 9 5 6m0-6-5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span id="sound-label">声音已关</span></button>
+      </div>
+    </header>
+
+    <main>
+      <div class="intro">
+        <div><p class="eyebrow"><span></span> A LITTLE ROOM, A LITTLE JOY</p><h1>把今天，过得慢一点<span>。</span></h1><p class="intro-copy">读几页书，睡一个好觉，再陪小猫待一会儿。</p></div>
+        <div class="day-counter"><span class="tiny-sun">✳</span><span>小屋生活<small>DAY <b id="day-count">01</b></small></span></div>
+      </div>
+
+      <div class="game-layout">
+        <section class="room-card" aria-label="随时间和活动变化的小屋">
+          <div class="scene-heading"><span class="scene-label"><span class="live-dot"></span>我的小小世界</span><span class="phase-pill" id="phase-label">晴朗的午后</span></div>
+          <div class="scene-wrap" id="scene-wrap">
+            <svg class="room-scene" id="room-scene" viewBox="0 0 900 650" role="group" aria-labelledby="scene-title scene-description">
+              <title id="scene-title">温暖的小屋和一只橘猫</title>
+              <desc id="scene-description">窗外的天空随时间变化，人物正在学习，橘猫趴在地毯上。</desc>
+              <defs>
+                <linearGradient id="sky-gradient" x2="0" y2="1"><stop id="sky-top" stop-color="#a9cad0"/><stop id="sky-bottom" offset="1" stop-color="#e8e8ce"/></linearGradient>
+                <linearGradient id="wall-gradient" x2="1" y2="1"><stop stop-color="#eae4d3"/><stop offset="1" stop-color="#ddd9c4"/></linearGradient>
+                <linearGradient id="floor-gradient" x2="0.2" y2="1"><stop stop-color="#d6c3a1"/><stop offset="1" stop-color="#e4d0ad"/></linearGradient>
+                <linearGradient id="curtain-gradient"><stop stop-color="#f9f4df"/><stop offset=".5" stop-color="#ebe6cf"/><stop offset="1" stop-color="#f7f2de"/></linearGradient>
+                <radialGradient id="lamp-gradient"><stop stop-color="#ffe5a6" stop-opacity=".7"/><stop offset="1" stop-color="#ffe5a6" stop-opacity="0"/></radialGradient>
+                <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#5b5136" flood-opacity=".11"/></filter>
+                <clipPath id="window-clip"><rect x="97" y="107" width="327" height="246" rx="3"/></clipPath>
+                <pattern id="rug-pattern" width="18" height="18" patternUnits="userSpaceOnUse"><path d="m0 9 9-9 9 9-9 9Z" stroke="#b8b89a" stroke-width="1" fill="none" opacity=".45"/></pattern>
+              </defs>
+              <!-- A quiet little room, drawn just for this day. -->
+              <path fill="url(#wall-gradient)" d="M0 0h900v463H0z"/>
+              <path fill="#d6d3bd" d="m802 0 98 0v481l-98-44Z"/>
+              <path fill="url(#floor-gradient)" d="M0 439h802l98 42v169H0Z"/>
+              <path d="M0 440h802l98 42M802 0v438" stroke="#a9a58b" stroke-width="2" opacity=".65"/>
+              <path d="M0 450h801l99 43" fill="none" stroke="#f0e6cc" stroke-width="10"/>
+              <g stroke="#b6a17e" opacity=".36" fill="none"><path d="m98 452-82 198m228-198-41 198m194-198 5 198m160-198 61 198m90-198 126 198M0 510h900M0 580h900"/><path d="M119 510v70m173 0v70m251-140v70m237 0v70"/></g>
+              <path id="sunbeam" d="m111 333 280 0 176 245-445 0Z" fill="#fff8d6" opacity=".19"/>
+
+              <!-- Window and the changing world outside -->
+              <rect x="78" y="87" width="365" height="290" rx="8" fill="#c7b895" filter="url(#soft-shadow)"/>
+              <rect x="88" y="98" width="346" height="267" rx="5" fill="#f6eed8"/>
+              <g clip-path="url(#window-clip)">
+                <rect x="97" y="107" width="327" height="246" fill="url(#sky-gradient)"/>
+                <g id="stars" fill="#fff9d9"><circle cx="132" cy="143" r="1.8"/><circle cx="208" cy="126" r="1.2"/><circle cx="291" cy="158" r="2"/><circle cx="379" cy="138" r="1.2"/><circle cx="330" cy="196" r="1.5"/><circle cx="173" cy="203" r="1.1"/><path d="m247 178 1.5 4.5 4.5 1.5-4.5 1.5-1.5 4.5-1.5-4.5-4.5-1.5 4.5-1.5Z"/></g>
+                <circle id="sun" cx="341" cy="160" r="24" fill="#fff4ca"/>
+                <g id="moon"><circle cx="351" cy="161" r="21" fill="#fff3cb"/><circle cx="360" cy="153" r="19" id="moon-cut" fill="#27364e"/></g>
+                <g class="cloud cloud-one" fill="#fffdf0" opacity=".64"><path d="M104 177q-8-15 7-19 2-20 22-13 14-8 21 8 19-1 16 16 11 12-4 14h-54Z"/></g>
+                <g class="cloud cloud-two" fill="#fffdf0" opacity=".47"><path d="M289 224q-5-12 8-15 5-15 18-9 13-4 18 7 17-2 16 12 11 10-2 12h-53Z"/></g>
+                <path id="far-hill" d="M90 286q58-64 113-24 68-64 132-20 51-28 99 11v108H90Z" fill="#9baa9a"/>
+                <path id="near-hill" d="M86 309q63-53 122-14 90-50 146-14 49-25 85 8v75H86Z" fill="#7e9380"/>
+                <g id="village"><path d="M271 300h54v54h-54Z" fill="#e6d6b9"/><path d="m262 302 35-26 37 26Z" fill="#aa8975"/><path d="M355 311h40v44h-40Z" fill="#d4c6ab"/><path d="m349 313 26-23 27 23Z" fill="#a18c76"/><g class="house-windows" fill="#a2b2a5"><path d="M280 315h10v13h-10zm23 0h10v13h-10zm61 9h9v12h-9z"/></g></g>
+                <g id="outside-tree" fill="#647f6b"><path d="M96 295q-25-8-13-29-9-22 15-27 3-20 23-13 23-10 30 12 24 7 11 27 11 26-15 30Z"/><path d="M117 277h7v81h-7Z" fill="#6f7761"/><path d="m120 303 22-25m-21 13-17-20" stroke="#6f7761" stroke-width="4"/></g>
+              </g>
+              <path d="M261 103v254M93 242h335" stroke="#eee5cd" stroke-width="9"/>
+              <path d="M261 105v250M96 242h330" stroke="#fff9e8" stroke-width="3"/>
+              <rect x="72" y="363" width="377" height="14" rx="3" fill="#eee4c9"/><path d="M77 377h366" stroke="#b5a884" stroke-width="3"/>
+              <path d="M66 85h390" stroke="#9d987a" stroke-width="7" stroke-linecap="round"/>
+              <g fill="url(#curtain-gradient)" stroke="#d8d1b6" stroke-width="1.5"><path d="M73 90h60q-15 91-41 163l17 121H54l10-121Z"/><path d="M412 90h38l9 284h-51l15-121q-16-79-11-163Z"/></g>
+              <g fill="none" stroke="#d2cab0" stroke-width="2" opacity=".6"><path d="m86 99-7 148-10 116m41-265L91 251l3 110m339-263 9 151-8 111m7-260 9 263"/></g>
+              <path d="m58 254 39 1m319 0h38" stroke="#aa9f7b" stroke-width="5"/>
+
+              <!-- Shelves, pictures, and small collected things -->
+              <rect x="542" y="122" width="209" height="9" rx="2" fill="#a18a67" filter="url(#soft-shadow)"/>
+              <path d="M561 132v14m167-14v14" stroke="#a18a67" stroke-width="5"/>
+              <g stroke="#8c8a71" stroke-width="1.5"><rect x="558" y="77" width="13" height="44" rx="1" fill="#8e9c84"/><rect x="572" y="71" width="15" height="50" rx="1" fill="#d4bd91"/><rect x="588" y="83" width="11" height="38" rx="1" fill="#ba8d73"/><path d="m601 79 13-4 14 43-13 4Z" fill="#d9cfad"/></g>
+              <path d="M661 102h33l-5 20h-23Z" fill="#c1a386"/><path d="M677 103q-26-15-18-29 18-1 18 29m0-2q21-26 29-13-3 17-29 13m0-3q-9-36 3-40 15 17-3 40" fill="#7f9270"/>
+              <rect x="712" y="79" width="25" height="42" rx="4" fill="#e4d4b5"/><path d="m721 81-1-15h10l-1 15" fill="#b1a287"/>
+              <g transform="rotate(4 701 222)"><rect x="662" y="171" width="77" height="91" rx="2" fill="#a68f6d"/><rect x="668" y="177" width="65" height="79" fill="#f3e9cf"/><path d="M700 239q-16-30 5-46 20 27-5 46" fill="#a7b095"/><path d="m701 244 4-46m-3 31-14-15m15 5 12-12" stroke="#73876c" stroke-width="2" fill="none"/></g>
+              <g><circle cx="549" cy="223" r="28" fill="#e9dfc4" stroke="#a8a186" stroke-width="4"/><circle cx="549" cy="223" r="2.5" fill="#7e8069"/><path id="wall-clock-hour" d="M549 223v-13" stroke="#7e8069" stroke-width="3" stroke-linecap="round"/><path id="wall-clock-minute" d="M549 223v-20" stroke="#7e8069" stroke-width="2" stroke-linecap="round"/><g stroke="#b5ad91" stroke-width="2"><path d="M549 200v3m0 40v3m-23-23h3m40 0h3"/></g></g>
+
+              <!-- Bed -->
+              <ellipse cx="232" cy="533" rx="174" ry="22" fill="#92856a" opacity=".13"/>
+              <path d="M67 394q0-12 12-12h30v130H67Z" fill="#a9916e" stroke="#948363" stroke-width="2"/><path d="M78 391v111m12-111v111" stroke="#bca780" stroke-width="3"/>
+              <path d="M92 442h285v74H92Z" fill="#ab9571"/><path d="M100 511v36m260-36v36" stroke="#978160" stroke-width="12" stroke-linecap="round"/>
+              <path d="m90 433 51-36h223l24 35-11 41H91Z" fill="#f3ecd7" stroke="#c7bda0" stroke-width="2"/>
+              <path d="m172 409 178-5 32 30-6 65q-96 10-203-3Z" fill="#8f9c7b"/>
+              <path d="M177 432q103 12 202 0v18q-91 15-202-1Z" fill="#a3ac8c"/>
+              <path d="M201 410v84m35-85v89m35-90v91m35-91v90m35-90v88" stroke="#b7bea1" stroke-width="2" opacity=".35"/>
+              <path d="m102 421 18-18q29-11 64 0l9 24q-56 15-91-6Z" fill="#f9f4e6" stroke="#d7ceb5" stroke-width="2"/>
+              <g id="person-sleeping" class="activity-person" hidden>
+                <g class="breathing"><path d="M166 413q10-27 51-10l40 31H168Z" fill="#c5aa7d"/><ellipse cx="146" cy="407" rx="25" ry="21" fill="#e7bd94"/><path d="M121 406q-8-29 22-31 23-2 28 21-17-8-26 1-11 4-24 9" fill="#534d3b"/><path d="m130 410 8 1m13-2 7-2" stroke="#8e7359" stroke-width="2" stroke-linecap="round"/><path d="M174 425q37-19 67 6l-3 30h-68Z" fill="#8f9c7b"/></g>
+                <g class="sleep-z" fill="#899779" font-family="Georgia,serif" aria-hidden="true"><text x="178" y="372" font-size="19">z</text><text x="196" y="350" font-size="25">z</text><text x="220" y="324" font-size="31">z</text></g>
+              </g>
+
+              <!-- Desk and chair -->
+              <ellipse cx="623" cy="520" rx="149" ry="17" fill="#92856a" opacity=".1"/>
+              <path d="M498 360v147m267-147v147" stroke="#9a8666" stroke-width="12" stroke-linecap="round"/>
+              <path d="M718 365h54v92h-54Z" fill="#c5b28c"/><path d="M718 410h54" stroke="#aa9673" stroke-width="2"/><path d="M738 386h13m-13 47h13" stroke="#8b8164" stroke-width="3" stroke-linecap="round"/>
+              <g id="desk-chair"><path d="m610 421-8 100m63-100 8 100" stroke="#8e8062" stroke-width="8" stroke-linecap="round"/><rect x="603" y="393" width="68" height="45" rx="12" fill="#a3a88a" stroke="#858f72" stroke-width="2"/><path d="M604 462h66" stroke="#8e8062" stroke-width="8" stroke-linecap="round"/></g>
+              <g id="person-studying" class="activity-person">
+                <path d="m617 433 8 42 32 0 9-10-25-7 2-28" fill="#6e7d6f"/><path d="m626 474 4 17 32 0q9-6-3-12l-16-5" fill="#635f4d"/>
+                <path d="M602 337q19-21 48-3l16 95q-22 17-58 1Z" fill="#bda47b"/>
+                <path d="M634 320v22" stroke="#e5bc93" stroke-width="15"/>
+                <g transform="translate(0 -26)"><g class="study-head"><ellipse cx="627" cy="323" rx="27" ry="29" fill="#e7bd94"/><path d="M599 326q-11-41 22-43 34-8 35 27-11-6-14-15-12 19-33 15l-3 16Z" fill="#534d3b"/><path d="m608 329 6 2m13 1 6-1" stroke="#80664c" stroke-width="2" stroke-linecap="round"/><path d="m612 342 11 1" stroke="#ad8565" stroke-width="2" stroke-linecap="round"/></g></g>
+              </g>
+              <path d="m476 346 33-20h266l15 20-4 15H476Z" fill="#c1a680" stroke="#a58e6b" stroke-width="2"/><path d="M480 348h303" stroke="#dfc9a2" stroke-width="4"/>
+              <g id="open-book"><path d="m539 327 28-7 18 5 25-4 17 12-42 7-45-6Z" fill="#fbf3d9" stroke="#b6a78a" stroke-width="1.5"/><path d="m585 326 1 12m-38-10 20-4m-16 8 20-4m20 1 15-3m-12 7 16-3" stroke="#c3bba1" stroke-width="1.5"/></g>
+              <g id="study-hands" class="activity-person"><path d="m613 350-16-10-27-4" fill="none" stroke="#c6ac82" stroke-width="13" stroke-linecap="round"/><path d="m569 335-13-4" stroke="#e5bc93" stroke-width="10" stroke-linecap="round"/></g>
+              <g><path d="m695 329 20-2 1 14-19 0Z" fill="#c18e74"/><path d="M714 330q13-4 10 5-2 7-10 2" fill="none" stroke="#c18e74" stroke-width="3"/><path class="tea-steam" d="M701 316q-6-6 0-13m8 13q-5-7 0-10" fill="none" stroke="#fff8e6" stroke-width="2" stroke-linecap="round"/></g>
+              <g id="desk-lamp"><ellipse cx="748" cy="332" rx="20" ry="5" fill="#85876a"/><path d="M746 329v-32l-20-28" fill="none" stroke="#85876a" stroke-width="5" stroke-linecap="round"/><path d="M709 257q14-13 25 1l9 24h-46Z" fill="#8b9473"/><path d="M700 282h40" stroke="#c5c2a0" stroke-width="3"/></g>
+              <ellipse id="lamp-glow" cx="717" cy="313" rx="105" ry="91" fill="url(#lamp-gradient)" opacity="0"/>
+
+              <!-- A woven rug, a person, and a very content cat -->
+              <ellipse cx="476" cy="552" rx="173" ry="53" fill="#b9b497" opacity=".45"/>
+              <ellipse cx="476" cy="547" rx="169" ry="50" fill="#e5dfc2" stroke="#c8c3a7" stroke-width="3"/>
+              <ellipse cx="476" cy="547" rx="151" ry="39" fill="url(#rug-pattern)" stroke="#c8c3a7"/>
+              <g stroke="#d9d3b7" stroke-width="2"><path d="m309 537-13-2m12 8-15-1m16 8-14 1m17 7-13 3m339-27 13-3m-11 10 14-1m-14 8 13 1m-16 6 13 3"/></g>
+              <g id="person-playing" class="activity-person" hidden>
+                <path d="M426 515q-37 15-39 33 19 19 65-1l31 4q26-7 1-18l-29-12Z" fill="#6e7d6f"/>
+                <path d="M417 450q18-16 41 1l4 68q-23 15-52-2Z" fill="#bda47b"/>
+                <path d="M437 437v16" stroke="#e5bc93" stroke-width="13"/>
+                <ellipse cx="433" cy="421" rx="24" ry="27" fill="#e7bd94"/><path d="M409 422q-12-36 16-37 31-8 34 24-15 4-23-12-9 17-25 15Z" fill="#534d3b"/><path d="m438 426 5 1m8-3 4-1m-14 14q5 3 8-1" fill="none" stroke="#8e7359" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="m454 465 22 18 25-8" fill="none" stroke="#c6ac82" stroke-width="14" stroke-linecap="round"/><path d="m497 477 11-4" stroke="#e5bc93" stroke-width="10" stroke-linecap="round"/>
+                <g class="cat-toy"><path d="m507 471 44-41" stroke="#a18a62" stroke-width="3" stroke-linecap="round"/><path d="M551 430q22 9 10 44" fill="none" stroke="#998e70" stroke-width="1.5"/><path d="M560 471q-13 5-5 15 10 4 13-7Z" fill="#bb826c"/><path d="M562 476q14-6 13 4l-11 4Z" fill="#b6a06d"/></g>
+              </g>
+              <g id="cat" class="cat-idle">
+                <ellipse cx="550" cy="547" rx="42" ry="8" fill="#b5a887" opacity=".25"/>
+                <path class="cat-tail" d="M569 534q34 4 32-20-3-9-9-5" fill="none" stroke="#be9063" stroke-width="12" stroke-linecap="round"/>
+                <g class="cat-body"><ellipse cx="549" cy="530" rx="32" ry="18" fill="#cda574"/><path d="m529 517-5-20 17 11 14-3 13-11 1 24" fill="#cda574" stroke="#b78c60" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="546" cy="521" rx="24" ry="20" fill="#d8b582"/><path d="m529 505 2 7 5-2m25-8-5 8 7-2" fill="#bd8c75"/><path d="m541 503 1 8m7-9-1 8m-10 23 6 2m9-3-5 3" stroke="#b88a5d" stroke-width="3" stroke-linecap="round"/><path id="cat-eyes" d="m531 520 5 2m19-2-5 2" fill="none" stroke="#695e46" stroke-width="2" stroke-linecap="round"/><path d="m542 525 5 0-2 3Z" fill="#9f7960"/><path d="m525 525-13-2m13 6-12 3m45-7 13-3m-12 7 13 2" stroke="#8b795c" stroke-width="1"/><path d="M533 543h15m7 0h14" stroke="#e6c89a" stroke-width="6" stroke-linecap="round"/></g>
+                <g id="cat-hearts" fill="#c58b77" opacity="0"><path d="M581 487c-14-13-12-23-4-22 5-1 7 3 7 3s4-5 9-2c10 5-3 17-12 21Z"/></g>
+              </g>
+              <g id="cat-ball"><circle cx="614" cy="559" r="11" fill="#b7856c"/><path d="M606 552q16 2 9 17m-12-9q12 4 20-4" stroke="#d1aa91" stroke-width="1.5" fill="none"/><path d="M624 562q26 6 37-4" stroke="#b7856c" stroke-width="1.5" fill="none"/></g>
+
+              <!-- The leafy roommate -->
+              <ellipse cx="802" cy="538" rx="48" ry="10" fill="#a79d7c" opacity=".22"/>
+              <path d="m773 469 59 0-10 64q-18 12-39 0Z" fill="#b59a78"/><path d="M770 469q32-9 65 0v10q-33 9-65 0Z" fill="#c4ad88"/><path d="M789 488v38m13-38v42m13-42v38" stroke="#9f886a" stroke-width="2" opacity=".6"/>
+              <g fill="none" stroke="#728364" stroke-width="4"><path d="M802 471q-20-87-6-138m4 141q10-88 41-111m-40 103q-33-56-52-60"/></g>
+              <g fill="#859572"><path d="M796 373q-42-13-33-39 36 1 33 39m-5 29q-47-2-44-25 28-11 44 25m6-37q31-11 22-35-28 8-22 35m8 48q35-7 38-32-32-5-38 32m-25 33q-47 2-48-22 31-16 48 22m37-37q35 1 42-22-23-13-42 22m-53 17q-6-33-31-30-7 24 31 30"/></g>
+              <g fill="#97a481"><path d="M799 342q-23-22-4-37 19 10 4 37m36 34q-6-30 17-33 12 25-17 33m-30 67q28 4 38-15-22-15-38 15"/></g>
+              <rect id="room-tint" width="900" height="650" fill="#293b64" opacity="0" pointer-events="none"/>
+            </svg>
+            <div class="room-caption"><span class="caption-line"></span><span id="scene-caption">阳光刚刚好，适合读上几页书。</span></div>
+          </div>
+          <div class="scene-footer"><span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 17s-7-4-7-9a3.5 3.5 0 0 1 7-1 3.5 3.5 0 0 1 7 1c0 5-7 9-7 9Z" stroke="currentColor" stroke-width="1.3"/></svg>攒下的小确幸 <strong id="joy-count">0</strong></span><span id="cat-status">橘子在陪你发呆<span class="small-dot"> · </span>喵</span></div>
+        </section>
+
+        <aside class="controls">
+          <section class="time-card" aria-label="小屋时间设置">
+            <div class="section-heading"><h2>此刻的小屋</h2><span class="timezone" id="timezone-label"><span></span>北京时间</span></div>
+            <div class="clock-row"><time id="clock">14:32<span>:08</span></time><svg id="time-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M24 6v5m0 26v5M6 24h5m26 0h5M11 11l4 4m18 18 4 4M11 37l4-4m18-18 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <p class="date-label" id="date-label">2026 年 11 月 17 日 · 星期二</p>
+            <div class="segmented-control" role="group" aria-label="时间模式"><button type="button" id="live-mode" class="active" aria-pressed="true">同步北京时间</button><button type="button" id="custom-mode" aria-pressed="false">自定义时间</button></div>
+            <div id="custom-time-controls" class="custom-time-controls" hidden>
+              <label class="input-label" for="custom-datetime">想把这一刻停在哪里？</label>
+              <input type="datetime-local" id="custom-datetime" min="2000-01-01T00:00" max="2099-12-31T23:59">
+              <label class="sr-only" for="time-slider">调整一天中的时间</label><input type="range" id="time-slider" min="0" max="1439" step="1" value="870">
+              <div class="range-labels"><span>凌晨</span><span>清晨</span><span>正午</span><span>傍晚</span><span>深夜</span></div>
+              <div class="time-flow"><button type="button" id="time-flow-toggle" aria-pressed="false"><span id="flow-symbol">▷</span><span id="flow-label">让时间流动</span></button><label for="time-speed" class="sr-only">时间流动速度</label><select id="time-speed"><option value="1">1 倍速</option><option value="60" selected>60 倍速</option><option value="360">360 倍速</option></select></div>
+            </div>
+            <p class="time-hint" id="time-hint"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v5l3 2M14 8A6 6 0 1 1 2 8a6 6 0 0 1 12 0Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>窗外的风景，和你共享同一刻。</p>
+          </section>
+
+          <section class="activity-section" aria-label="选择人物活动">
+            <div class="section-heading activity-heading"><h2>接下来，想做什么？</h2><span>随心就好</span></div>
+            <div class="activity-list">
+              <button type="button" class="activity-button" data-activity="sleep" aria-pressed="false"><span class="activity-icon"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M22 17A10 10 0 0 1 11 5a10 10 0 1 0 11 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 4v5m-2.5-2.5h5m1 4v3m-1.5-1.5h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span><span class="activity-text"><strong>睡个好觉</strong><small>把疲惫交给柔软的枕头</small></span><span class="activity-meta"><span>精力 +</span><i></i></span></button>
+              <button type="button" class="activity-button selected" data-activity="study" aria-pressed="true"><span class="activity-icon"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 7Q8 3 3 6v16q5-3 11 1 6-4 11-1V6q-5-3-11 1Zm0 0v16M7 10l3 1m-3 4 3 1m8-5 3-1m-3 6 3-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="activity-text"><strong>读书学习</strong><small>一点一点，成为更好的自己</small></span><span class="activity-meta"><span>专注 +</span><i></i></span></button>
+              <button type="button" class="activity-button" data-activity="play" aria-pressed="false"><span class="activity-icon"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m6 12-1-8 7 5h4l7-5-1 9c5 8-1 12-8 12S2 21 6 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 16h.1m10 0h.1m-7 4q2 2 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="activity-text"><strong>陪橘子玩</strong><small>小猫的快乐，就是这么简单</small></span><span class="activity-meta"><span>心情 +</span><i></i></span></button>
+            </div>
+            <div class="activity-progress"><div class="progress-copy"><span><span class="pulsing-dot"></span><span id="activity-status">正在读书学习</span></span><button type="button" id="pause-activity">歇一会儿</button></div><div class="progress-track"><div id="activity-progress-bar"></div></div><p id="activity-progress-note">再专注 45 秒，收获一份小确幸</p></div>
+          </section>
+        </aside>
+      </div>
+
+      <section class="wellbeing" aria-label="人物状态">
+        <div class="wellbeing-intro"><span class="leaf-icon">❧</span><div><h2>好好照顾自己</h2><p>每一件小事，都在让你变好。</p></div></div>
+        <div class="stat" data-stat="energy"><div class="stat-top"><span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m11 2-7 9h5l-1 7 8-10h-6l1-6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>精力</span><strong id="energy-value">72<small>/100</small></strong></div><div class="stat-track"><span id="energy-bar"></span></div><p id="energy-note">还有满满的能量</p></div>
+        <div class="stat" data-stat="focus"><div class="stat-top"><span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 5q-4-3-7-1v12q3-2 7 1 4-3 7-1V4q-3-2-7 1Zm0 0v12" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>专注</span><strong id="focus-value">48<small>/100</small></strong></div><div class="stat-track"><span id="focus-bar"></span></div><p id="focus-note">知识在一点点积累</p></div>
+        <div class="stat" data-stat="mood"><div class="stat-top"><span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M7 8h.1m5.8 0h.1M7 12q3 3 6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>心情</span><strong id="mood-value">84<small>/100</small></strong></div><div class="stat-track"><span id="mood-bar"></span></div><p id="mood-note">今天也有小小的幸福</p></div>
+      </section>
+      <div class="cloud-strip"><span id="cloud-status" role="status" aria-live="polite">访客小屋 · 进度保存在本机</span><button id="cloud-sync" type="button" hidden>立即保存</button></div>
+      <footer class="page-footer"><span>不用赶路，生活就在这里。</span><span>和橘子一起 <span class="footer-flower">✳</span> 把平凡过成喜欢</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="account-dialog" class="account-dialog" aria-labelledby="account-title">
+    <button id="account-close" class="dialog-close" type="button" aria-label="关闭账号窗口">×</button>
+    <p class="eyebrow">YOUR OWN LITTLE ROOM</p>
+    <h2 id="account-title">给你的小屋留一个名字</h2>
+    <p class="account-intro" id="account-intro">登录后，换一台设备也能找回自己的日常。</p>
+    <div id="auth-tabs" class="segmented-control"><button id="login-tab" class="active" type="button" aria-pressed="true">登录小屋</button><button id="register-tab" type="button" aria-pressed="false">注册新账号</button></div>
+    <form id="account-form">
+      <label for="account-username">账号</label>
+      <input id="account-username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required minlength="3" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" placeholder="3–24 位字母、数字或下划线">
+      <label for="account-password">密码</label>
+      <input id="account-password" name="password" type="password" autocomplete="current-password" required minlength="10" maxlength="128" placeholder="10–128 个字符">
+      <div id="confirm-password-field" hidden><label for="account-confirm">再输入一次密码</label><input id="account-confirm" type="password" autocomplete="new-password" maxlength="128" placeholder="再确认一下你的密码"></div>
+      <label id="import-guest-label" class="import-guest" hidden><input id="import-guest" type="checkbox" checked>把当前访客进度带到新小屋</label>
+      <button id="account-submit" class="primary-button" type="submit">回到我的小屋</button>
+      <p class="account-footnote">请记好账号和密码，目前暂不提供密码找回。</p>
+    </form>
+    <section id="account-details" hidden>
+      <p id="account-storage-info" class="account-storage-info"></p>
+      <button id="account-save" class="primary-button" type="button">保存当前进度</button>
+      <button id="account-logout" class="secondary-button" type="button">退出账号，回到访客小屋</button>
+    </section>
+    <div id="save-conflict" class="save-conflict" hidden><p>另一台设备已有新进度。当前这份进度会留在本机，请选择要继续的小屋。</p><button id="use-cloud-save" class="primary-button" type="button">使用云端进度</button><button id="keep-local-save" class="secondary-button" type="button">用本机进度替换云端</button></div>
+    <p id="account-message" class="account-message" role="status" aria-live="polite"></p>
+  </dialog>
+  <script src="./game.js"></script>
+  <script src="./account.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "peaceful-life",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "build:web": "node scripts/build-web.mjs",
+    "start": "node --env-file-if-exists=.env server/index.mjs",
+    "dev": "node --env-file-if-exists=.env server/index.mjs --local",
+    "preview:cloud": "node scripts/preview-cloud.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "package:fc": "node scripts/package-fc.mjs"
+  },
+  "dependencies": {
+    "@alicloud/fc20230330": "4.8.5",
+    "@alicloud/openapi-client": "0.4.15",
+    "ali-oss": "6.23.0"
+  }
+}
